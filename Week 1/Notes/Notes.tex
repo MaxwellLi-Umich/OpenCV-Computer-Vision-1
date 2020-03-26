@@ -8,7 +8,7 @@
 \usepackage[font={color=black!30!white},figurename=Fig.,labelfont={it}]{caption}
 \usepackage{tabto}
 
-\title{Week 1 Computer Vision Notes}
+\title{OpenCV Computer Vision 1 Notes}
 \date{3-25-2020}
 \author{Maxwell Li}
 
@@ -21,7 +21,7 @@
   \pagenumbering{arabic}
   \newpage
 
-  \section{\textbf{Section 1: Getting Started with Images}}
+  \section{\textbf{Week 1: Getting Started with Images}}
     \subsection{Introduction}
     Some things we will learn\\
     \quad - What is color?\\
@@ -88,7 +88,7 @@
 
     \newpage
     \clearpage
-    \section{Reading Images in OpenCV}
+    \section{Week 1: Reading Images in OpenCV}
     \subsection{Image Formats}
     OpenCV can use two different formats, JPEG and PNG
 
@@ -120,7 +120,7 @@
     \subsection{Reading The Image (Week One: Getting Started With Images)}
     To load an image through OpenCV use the \textbf{imRread} function. This function is able to handle most, if not all of the image types that you may want to upload (these include JPEG, PNG, etc)
 
-    \subsubsection{Function Syntax}
+    \subsubsection{Function Syntax: cv2.imread}
     \textbf{$loaded image = cv2.imread(filename, flags)$}\\
     \tab this function (imread) will return the image as a matrix or None if something happened that it was not able to resolve.
     \tab This function has \textbf{two arguments}:\\
@@ -166,6 +166,53 @@
     \begin{center}
       $testImage[0:2,0:4] = 111$
     \end{center}
+
+    \subsection{Displaying An Image}
+    Previously learned were the ways that you could display the matrices that made up a specific image and see the values that they contained. Also learned were the ways to modify a pixel or a ROI (Region of Interest). All of this however is pretty much useless as it isn't really possible to visualize a whole picture by just looking at the matricies. There is the need to actually display the image and when using python that is done with Matplotlib.\\
+    Matplotlib is a python library for data visualization and does a pretty good job as it. As the name implies, it is a library for plotting math related things. Matplotlib can be installed with a simple, \textbf{pip install matplot lib}. Make sure that you are on the virtualenv that you want to use it for (personally i just install everything system wide I know it is not the right way to do it but it is the way that I do it for ease of use).
+
+    \subsubsection{Function Syntax: plt.imshow() vs cv2.imshow()}
+    \indent \textbf{Matplotlib}\\
+    \indent \indent - The matplot lib version of the function only has 1 mandatory argument, which is the image in the form of a matrix. A good practice is to also incluse the colorbar() function with it as well as it show a gradient colorbar based on the values.
+
+    \begin{center}
+      plt.imshow(matrix)\\
+      matrix - Image to be displayed
+    \end{center}
+
+    \newpage
+    \clearpage
+
+    \textbf{OpenCV}\\
+    \indent \indent - The OpenCV version of the function is similar to the Matplotlib version but where it differs is that it opens a separate window to view the image in. This version requires you to have OpenCV installed locally on your computer to run as it uses OpenCV packages.
+
+
+
+    \begin{center}
+      cv2.imshow(window name, matrix)\\
+      \textbf{Read the image:} $boy = cv2.imread(data\_path + ``/images/boy.jpg'')$\\
+      \textbf{Display the image using imshow: } $cv2.imshow("Boy", boy)$\\
+      \textbf{Wait for user to press a key: } $cv2.waitKey(0)$\\
+      \textbf{Destroy the window: } $cv2.destroyAllWindows()$\\
+      ***These extra methods will be gone over in the next section***
+    \end{center}
+
+    \subsection{Addition Display Utility Functions (OpenCV)}
+    \subsubsection{cv2.namedWindow}
+    This function creates a display window with a specific name. The name provided is the first argument of the function. The second is a flag that determines whether or not the window can be resized. \\
+    The two flags are \textbf{cv2.WINDOW\_NORMAL}, which will all the window to be resized to fit the image that is sent to it, or \textbf{cv2.WINDOW\_AUTSIDZE} which is the default if nothing is sent.
+    \subsubsection{cv2.waitKey}
+    This function can be used in image and video processing. The only argument that it takes is the milliseconds to wait for a key press. For example if you sent it 100 then it will wait for a key to be pressed for 100ms and proceed if the time has passed or the key has been pressed. If a 0 is passed in then it will wait indefinently until a key is pressed
+    \subsubsection{cv2.destroyWindow}
+    This function is pretty self explanatory. The only parameter that it takes is the window name. It will then destroy the window
+    \subsubsection{cv2.destroyAllWindows}
+    Just like destroywindow except it destroys all windows. 
+
+
+
+
+
+
 
 
 

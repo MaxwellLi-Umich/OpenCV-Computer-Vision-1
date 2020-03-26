@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1585186884 "Notes.tex" "Notes.pdf" "Notes" 1585186886
-  "Notes.aux" 1585186885 3017 88bf1a74079eab230daff871fe167a24 "pdflatex"
-  "Notes.tex" 1585186884 9015 e079fe4ee80bf2c451e778993fea3409 ""
-  "Notes.toc" 1585186885 1189 79837dd17f995f2dd301025821247d73 "pdflatex"
+["pdflatex"] 1585256875 "Notes.tex" "Notes.pdf" "Notes" 1585256877
+  "Notes.aux" 1585256877 3738 5551cc18e0fb546ecf00b3431251bafc "pdflatex"
+  "Notes.tex" 1585256873 12435 7e7d56121dfe7fb6d1e689db199b5414 ""
+  "Notes.toc" 1585256877 1623 4e5785611bde5aff9f64d3fef9f61ba1 "pdflatex"
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1585072070 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1585069775 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1585069775 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -26,6 +26,7 @@
   "c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1585069776 35752 024fb6c41858982481f6968b5fc26508 ""
   "c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1585069776 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1585069776 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1585069776 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1585069776 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1585073629 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2019/texmf-dist/tex/generic/iftex/iftex.sty" 1585072546 6902 30fdaf7dc5636b8e3afa306210c45cae ""
@@ -65,7 +66,7 @@
   "pinholecamera.png" 1585133183 136774 7700c41b41f3b2e72bb89bb1f28a393a ""
   "transparentimage.png" 1585183361 79876 cfd3f1a8b7606be0b99f6cc83af3672d ""
   (generated)
-  "Notes.pdf"
-  "Notes.log"
   "Notes.aux"
   "Notes.toc"
+  "Notes.log"
+  "Notes.pdf"
