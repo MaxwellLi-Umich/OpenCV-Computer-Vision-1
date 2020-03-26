@@ -13,7 +13,7 @@
 \author{Maxwell Li}
 
 \begin{document}
-  \color{black!30!white}
+  \color{black!20!white}
   \pagecolor{black!80!white}
   \maketitle
   \tableofcontents
@@ -78,13 +78,102 @@
     \tab\tab - No. of channel\\
     \tab\tab - Color Profile\\
     \tab\tab - No. of bits per pixel\\
-    The second part is the data which actually contains the RBG values
+    The second part is the data which actually contains the RGB values
 
     \subsection{Image in OpenCV}
     When an image is first read in openCV the image is decompressed and stored in a standardized format. All images are stored into the \textbf{Mat Class} if the C++ version is being used, or a \textbf{Numpy array} if Python is being used.
 
     \subsubsection{Mat Class}
     The Mat class is similar to a JPEG in structure but the difference is that instead of using RGB values it used BGR. It uses bgr because of historic reasons, aka that is how they initially did it and it makes no sense to back through and change all of the backend code now.
+
+    \newpage
+    \clearpage
+    \section{Reading Images in OpenCV}
+    \subsection{Image Formats}
+    OpenCV can use two different formats, JPEG and PNG
+
+    \begin{wrapfigure}{r}{400pt}
+    \centering
+    \includegraphics[width=325pt]{jpegvspng.png}
+    \caption{\label{fig:jpegvspng}JPEG vs PNG.}
+    \end{wrapfigure}
+
+
+    \subsubsection{JPEG}
+    1) Most Popular\\
+    2) Loss in image format\\
+    3) Small Filesize
+    \subsubsection{PNG}
+    1) Very Popular\\
+    2) Lossless and lossy options\\
+    3) Supports transparency\\ \\ \\
+    \subsubsection{Transparent Images}
+
+    \begin{wrapfigure}{r}{300pt}
+    \centering
+    \includegraphics[width=200pt]{Transparentimage.png}
+    \caption{\label{fig:Transparentimage}RBG vs Transparent RGB.}
+    \end{wrapfigure}
+    Contains all three regular channels (Red, Green, Blue) and also contains an `Alpha' channel that acts as a mask (255 or 0). The value that is put into the alpha channel is determined by the Opacity of the pixel. If the pixel is ``Transparent'', then there will be a 0 for that pixel in the Alpha channel. If the pixel is not ``Transparent'', then it will recieve a value of 255.\\
+    ***Note: Alpha channels do not neccesarily have to be binary. They can be tertiary or higher if for some reason that kind of masking is wanted/needed. Aka, there can be partial transparencies
+
+    \subsection{Reading The Image (Week One: Getting Started With Images)}
+    To load an image through OpenCV use the \textbf{imRread} function. This function is able to handle most, if not all of the image types that you may want to upload (these include JPEG, PNG, etc)
+
+    \subsubsection{Function Syntax}
+    \textbf{$loaded image = cv2.imread(filename, flags)$}\\
+    \tab this function (imread) will return the image as a matrix or None if something happened that it was not able to resolve.
+    \tab This function has \textbf{two arguments}:\\
+    \tab \tab 1) The \textbf{path} of the image file: this can be absolute or relative and is a mandatory argument\\
+    \tab \tab 2) \textbf{Flags:} -1, 0, or 1. ***DEFAULT IS ONE***\\
+    \indent \indent $cv2.IMREAD\_UNCHANGED$ or -1: Loads an image including the alpha channel (unchanged)\\
+    \indent \indent   $cv2.IMREAD\_GRAYSCALE$ or 0: Loads the image in grayscale\\
+    \indent \indent  $cv2.IMREAD\_COLOR$ or 1: Loads a color image and throws out transparency\\
+
+    \newpage
+    \clearpage
+    \subsection{Manipulating Pixels (Week One: Getting Started With Images)}
+    \subsubsection{Accessing Values}
+    \indent Since the openCV returns things as a matrix of values, you can just access them using the subscript notation of matricies.\\
+    IMPORTANT: Numpy saves the matrix in row column format which is the opposite of x,y format. For example if you want to access the pixel to the right of the top left instead of (1,0), which is the cartesian representation of it, it would be [0,1]. This is an important distinction as it will allow you to actually access the correct variables.\\
+
+    \begin{center}
+      $print(testImage[0,0])$
+    \end{center}
+
+
+    \subsubsection{Modifying Values}
+    Just use a normal python $=$ operation for this. You can either modify a single value or a whole region...that is next\\
+    There are a few reasons why people would want to change the values of the pixels. For one, if there is a known issue with the image or a known change that the user might want to change, they need to be able to access and modify the values. For example maybe the edges of the image are blurry so you just set them all to 0 so that there are no false positives.
+
+    \begin{center}
+      $testImage[0,0]=200$\\
+      $print(testImage)$
+    \end{center}
+
+    \subsection{Manipulating Groups of Pixels (Week One: Getting Started With Images)}
+    \subsubsection{How To Access A Region}
+
+    \begin{center}
+      ROI - Region of Interest\\
+      $test\_roi = testImage[0:2,0:4]$\\
+    \end{center}
+
+    This code will return a resulting matrix the is 2 rows tall, and 4 columns long. This is a bit counterintuitive because if you count up from 0 (where subscript position starts), and go to the last number then both dimensions are missing 1 element. This is because python is inclusive of the lower bound but non inclusive of the upper bound. \\
+    0:2 tells python, hey! Look in this matrix and take out rows 0 and 1, stop before two, and also take columsn 0, 1, 2, 3 and stop before four. Now stich this all together into a matrix and return it! This way the programmer can select a specific part of the iamge that they are interested in using aka, Region of Interest.\\
+    To set a region of interest to a specific value all you have to do is take the region, and use the equals operator.
+
+    \begin{center}
+      $testImage[0:2,0:4] = 111$
+    \end{center}
+
+
+
+
+
+
+
+
 
 
 
