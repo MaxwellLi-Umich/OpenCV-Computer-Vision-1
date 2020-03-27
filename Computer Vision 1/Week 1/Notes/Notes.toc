@@ -7,7 +7,7 @@
 \contentsline {subsubsection}{Image Storage}{3}%
 \contentsline {subsection}{Image in OpenCV}{3}%
 \contentsline {subsubsection}{Mat Class}{3}%
-\contentsline {section}{Week 1: Reading Images in OpenCV}{4}%
+\contentsline {section}{Week 1: Reading/Writing/Modifying Images in OpenCV}{4}%
 \contentsline {subsection}{Image Formats}{4}%
 \contentsline {subsubsection}{JPEG}{4}%
 \contentsline {subsubsection}{PNG}{4}%
