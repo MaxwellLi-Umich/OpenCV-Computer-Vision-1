@@ -26,3 +26,10 @@
 \contentsline {subsubsection}{cv2.waitKey}{6}%
 \contentsline {subsubsection}{cv2.destroyWindow}{6}%
 \contentsline {subsubsection}{cv2.destroyAllWindows}{6}%
+\contentsline {subsection}{Saving an Image}{6}%
+\contentsline {subsubsection}{Syntax}{6}%
+\contentsline {subsection}{Color Images}{7}%
+\contentsline {subsubsection}{Image Channels}{7}%
+\contentsline {subsubsection}{Accessing Individual Channels}{7}%
+\contentsline {subsection}{Images the Alpha (fourth) Channel}{8}%
+\contentsline {subsubsection}{Example: }{8}%

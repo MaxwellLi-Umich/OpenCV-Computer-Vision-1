@@ -1,5 +1,5 @@
 \documentclass[fleqn]{article}
-\usepackage{xcolor}
+\usepackage{xcolor, etoolbox}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -13,8 +13,14 @@
 \author{Maxwell Li}
 
 \begin{document}
+  % This is what sets the page number color
+  \makeatletter % change only the display of \thepage, but not \thepage itself:
+  \patchcmd{\ps@plain}{\thepage}{\textcolor{black!20!white}{\thepage}}{}{}
+
+  % This sets the theme for the page
   \color{black!20!white}
   \pagecolor{black!80!white}
+
   \maketitle
   \tableofcontents
   \setcounter{secnumdepth}{0}
@@ -206,7 +212,94 @@
     \subsubsection{cv2.destroyWindow}
     This function is pretty self explanatory. The only parameter that it takes is the window name. It will then destroy the window
     \subsubsection{cv2.destroyAllWindows}
-    Just like destroywindow except it destroys all windows. 
+    Just like destroywindow() except it destroys all windows.
+
+    \subsection{Saving an Image}
+    To save an image to the disk use a function called imwrite from the cv2 library.
+    \subsubsection{Syntax}
+    \begin{center}
+      $cv2.imwrite("test.jpg", testImage)$\\
+      \textbf{Parameter 1:} is the filename to be saved as, if you would like to save it as a PNG then add a .png if you want it to be saved as a JPEG then save it as a .jpg\\
+      \textbf{Parameter 2:} is the matrix that you want to store to the new image file that is going to be created. \\
+      There are more params that can specify the compression quality and others but they don't really matter. If you want to find out more about it just look at the documentation online.
+    \end{center}
+
+    \newpage
+
+    \subsection{Color Images}
+    This will go over how to read a color image and it's properties. \\
+    To read a colored image you will still use the \textbf{cv2.imread()} function. The only difference between reading colored and non color images is that now if you check the ``shape'' of the matrix you will see that it has a 3rd dimension that is either 3 or 4. 3 for normal RGB (remember each channel is a color) or it will have 4, the 4th being the channel for transparency.
+
+    \subsubsection{Image Channels}
+    If you read in a colored image using \textbf{cv2.imread()} and then print it using the \textbf{plt.imshow()} you will see that the image is inverted. This is because OpenCV as previously discussed handles RGB as BGR. If you use the \textbf{OpenCV imread} function then it knows in what order to interprett those channels. Unfortunately Matplotlib doesn't understand the order which is why I think that it just makes more sense to use the OpenCV show function. It allows more flexability with the movable and possibly resizable window and also integrates seamlessly with OpenCV, as it should. You would think that they would all just standardize the data on one format but no, everyone wants to do it their own way and doesn't want to standardize...sigh. One day these companies will learn.\\
+    \textbf{Note:} If for some reason you still feel compelled to use the Matplotlib (if you are I truly don't understand why please shoot me a message on github), then you can simply reverse the order of the last dimension of the matrix. That will convert the RBG to BGR...just use OpenCV...there is no point to go through the hassle...please.
+
+    \subsubsection{Accessing Individual Channels}
+    When wanting to pring the individual channels out and seeing what the image looks like just use the imshow method (please us cv2). The way to do this is remember that at the end of the day it is a python numpy array and that there are 3-4 channels on that last dimension of the array.
+    \begin{center}
+      \textbf{Code Examples of How to Show 3 channel subplots}\\
+      plt.subplot(131);plt.imshow(img[:,:,0]);plt.title("Blue Channel");\\
+      plt.subplot(132);plt.imshow(img[:,:,1]);plt.title("Green Channel");\\
+      plt.subplot(133);plt.imshow(img[:,:,2]);plt.title("Red Channel");\\
+    \end{center}
+    Keep in mind that this is not doing \textbf{anything fancy}... this is
+    just basic accessing of arrays. Don't get too caught up with it. You are just selecting which part of the 3rd dimension to use (one is R, one is G, one is B). To really quickly explain the subplot function:
+    1 row, 3 columns, position (1) $\rightarrow$ 131\\ \\
+
+    Another way to split the image up into the separate components would be to use the cv2.split function.
+
+    \begin{center}
+      $\#$ Split the image into the B,G,R components\\
+      b,g,r = cv2.split(img)\\[0.25in]
+
+      $\#$ Show the channels\\
+      plt.figure(figsize=[20,5])\\
+      plt.subplot(141);plt.imshow(b);plt.title("Blue Channel");\\
+      plt.subplot(142);plt.imshow(g);plt.title("Green Channel");\\
+      plt.subplot(143);plt.imshow(r);plt.title("Red Channel");\\[0.25in]
+
+      $\#$ Merge the individual channels into a BGR image\\
+      imgMerged = cv2.merge((b,g,r))\\
+      $\#$ Show the merged output\\
+      cv2.imshow("Merged Output", imgMerged[:,:,:])\\[0.25in]
+    \end{center}
+    \textbf{Note:} I did make a change to the lesson code here. The lesson code uses the plt.imshow method which takes RGB, not the BGR values that have been merged. Instead of wasting time and in the future making a mistake by not flipping the channels, I changed it to the cv2 imshow which you should use as it integrates better.
+
+    \newpage
+
+    \subsection{Images the Alpha (fourth) Channel}
+    The best way that I can relate the alpha channel metaphorically would be like a 6th sense.  The three other channels are like the 5 senses of color and the Alpha Channel is the Fourth Channel (see the comparison to the sixth sense here). This is an original metaphor that I came up with so I am pretty stoked about it. Here is the code to use the alpha channel through OpenCV.
+
+    \subsubsection{Example: }
+      \begin{center}
+        \# Path of the image to be read\\
+        $image\_path = data\_path + ``images/panther.png''$ \\[0.25in]
+
+        \# read the iamge\\
+        \# the example passes a flag of -1 so that the image is read as is but to code correctly we should use the created flag for readability. \\
+        $img\_png = cv2.imread(image\_path, cv2.IMREADUNCHANGED)$ \\[0.25in]
+
+        \# First 3 channels will be combined to form BGR image
+        \# Mask is the alpha channel of the original image
+        imgBGR = imgPNG[:,:,0:3]
+        imgMask = imgPNG[:,:,3]
+        plt.figure(figsize=[15,15])
+        plt.subplot(121);plt.imshow(imgBGR[:,:,::-1]);plt.title('Color channels');
+        plt.subplot(122);plt.imshow(imgMask,cmap='gray');plt.title('Alpha channel');
+      \end{center}
+
+      \begin{figure}[h]
+      \centering
+      \includegraphics[width=500pt]{alphamask.png}
+      \caption{\label{fig:alphamask}Example of a binary alpha mask.}
+      \end{figure}
+
+      I have learned one possible advantage to using Matplotlib which is why I kept this example as is, is the fact that there is an easy way to have subplots all display next to each other where if you were doing this with OpenCV they would all be separate windows...Still not sure what is better...will keep writing about it. If only they just standardized :(
+
+
+
+
+
 
 
 
