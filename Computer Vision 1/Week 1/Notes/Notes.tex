@@ -7,6 +7,7 @@
 \usepackage{caption}
 \usepackage[font={color=black!30!white},figurename=Fig.,labelfont={it}]{caption}
 \usepackage{tabto}
+\usepackage{hyperref}
 
 \title{OpenCV Computer Vision 1 Notes}
 \date{3-25-2020}
@@ -296,29 +297,153 @@
 
       I have learned one possible advantage to using Matplotlib which is why I kept this example as is, is the fact that there is an easy way to have subplots all display next to each other where if you were doing this with OpenCV they would all be separate windows...Still not sure what is better...will keep writing about it. If only they just standardized :(
 
+      \newpage
+
+      \section{Basic Image Operations}
+
+      \subsection{Creating New Images}
+      \subsubsection{Create a copy of an image}
+      Copying an image is a fairly easy task. The numpy data type has a built in copy() function that can be accessed through the dot operator. Once you had read an image using the imread() function you can just simply take that numpy matrix and use the .copy() function to copy it over.
+
+      \begin{center}
+        image = cv2.imread(datapath)\\
+        $image\_copy = image.copy()$
+      \end{center}
+
+      \subsubsection{Creating an Empty Image}
+      To create an empty image just create a numpy array full of 0's using the np.zeros function.
+
+      \begin{center}
+        $emptyMatrix = np.zeros((100,200,3),dtype='uint8')$\\
+      \end{center}
+              This will make a black image that is the size that has been specified. the second parameter is the data type that you want the 0's to be. If you want to make it a white picture then you would change it to np.ones and the multiply the entire matrix by 255.
+
+      \subsubsection{Creating an empty matrix that is the same size as the original}
+      To do this use the numpy function called $ones\_like()$ and pass in the image that you want a blank copy of to be made. This will return a new array that is full of ones and is the same size as the image passed in.
+
+      \subsubsection{Cropping an Image}
+      Cropping is just extracting a rectangular region from the image. To do this just remember that the image really is a python numpy array. Just pull out the part that you want by slicing the values that you want out of it.
+
+      \begin{center}
+        \# Crop out a rectangle\\
+        \# x coordinates = 170 to 320\\
+        \# y coordinates = 40 to 200\\
+        $crop = image[40:200,170:320]$\\
+      \end{center}
+
+      \subsubsection{Copying/Pasting a part of an image}
+      To copy a region of interest the only thing you have to make sure is that the size of the region that you have copied is the same as the region that you are going to paste it into. \\
+      1) Copy the part of the original image by slicing the numpy array.
+      2) Go to wherever you want to paste the image and set those values in the array to the array that represents the crop. \\
+      3) Something that can help is the \.shape variable that numpy arrays have. For example you can do \textbf{image\_x, image\_y \= image.shape[:number of dimensions]}, where number of dimensions is how many dimensions you are going to split it out into.
+
+      \subsubsection{Resizing an Image}
+      To resize an image use the cv2.resize function. \\
+      \textbf{Syntax: dst $=$ cv2.resize(    src, dsize[, dst[, fx[, fy[, interpolation]]]]    )} where:\\
+       \textbf{src: }input image\\
+       \textbf{dst: }output resized image\\
+       \textbf{dsize}output image size\\
+       \textbf{fx: }the scale factor along the x axis
+       \textbf{fy: }the scale factor along the y axis
+       \textbf{interpolation: }interpolation method(Bilinear/Bicubic, etc), interpolation flags can be found \href{https://docs.opencv.org/4.1.0/da/d54/group__imgproc__transform.html#ga5bb5a1fea74ea38e1a5445ca803ff121}{here}
+
+    \newpage
+
+    \subsubsection{Resizing an Image Continued}
+    There are two main ways of using the resize method to effectively resize an image.\\
+    \textbf{1) Specify the new width and height:}\\
+    The biggest downside of this is that you, the programmmer, will have to keep track of the aspect ratio as the mthod will not preserve it. Here is an example
+
+    \begin{center}
+      \# Set rows and columns\\
+      resizeDownWidth $=$ 300\\
+      resizeDownHeight $=$ 200\\
+      resizedDown $=$ cv2.resize(image, (resizeDownWidth, resizeDownHeight), interpolation $=$ cv2.INTER\_LINEAR)\\
+
+      \# Mess up with the aspect ratio\\
+      resizeUpWidth $=$ 600\\
+      resizeUpHeight $=$ 900\\
+      resizedUp $=$ cv2.resize(image, (resizeUpWidth, resizeUpHeight), interpolation $=$ cv2.INTER\_LINEAR)\\
+
+      plt.figure(figsize$=$[15,15])\\
+      plt.subplot(131);\\
+      plt.imshow(image[:,:,::-1]);plt.title("Original Image")\\
+      plt.subplot(132);\\
+      plt.imshow(resizedUp[:,:,::-1]);plt.title("Scaled Up Image")\\
+      plt.subplot(133);\\
+      plt.imshow(resizedDown[:,:,::-1]);plt.title("Scaled Down Image")\\
+    \end{center}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=500pt]{resizing1.png}
+      \caption{Resizing an image using the first Method}
+      \label{resizing1}
+    \end{figure}
+
+    \newpage
+
+    \textbf{2) Specify a Scaling Factor:}\\
+    This method is more useful when you want to resize the image but preserve the original aspect ration of the image. Here is the example code.
+
+    \begin{center}
+      \# Scaling Down the image 1.5 times by specifying both scaling factors\\
+      scaleUpX = 1.5\\
+      scaleUpY = 1.5\\
+
+      \# Scaling Down the image 0.6 times specifying a single scale factor.\\
+      scaleDown = 0.6\\
+
+      scaledDown = cv2.resize(image, None, fx= scaleDown, fy= scaleDown, interpolation= cv2.INTER\_LINEAR)\\
+
+      scaledUp = cv2.resize(image, None, fx= scaleUpX, fy= scaleUpY, interpolation= cv2.INTER\_LINEAR)\\
+    \end{center}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=250pt]{resizing2.png}
+      \caption{Resizing an image using the second Method}
+      \label{resizing2}
+    \end{figure}
+
+    As you can see the aspect ratio has not been disturbed as well as it is a lot easier to just do it this way. The only difference with doing it this way is that you have to do some quick math on what the change in aspect ratio should be.
+
+    \subsubsection{Creating an Image Mask}
+    Masking is a very important part of computer vision as it allows the program to ignore or highlight specific parts of the program based on certain conditions. \\
+    I will now show how to create a mask based on pixel intensity or color.\\
+    Lets say that we want to focus on creating a mask for the color red. Thinking about this logic is pretty simple and it just is that the red channel should have fairly high values (150+), and the other two channels should have low values (less than 100).\\
+    The easiest way to do this is by using the OpenCV method called \textbf{inRnage}. This function takes an image and returns a binary image (black or white) based on the parameters that are passed into it.\\
+    \textbf{Here is the syntax: }
+
+    \begin{center}
+      dst = cv2.inRange(src, lowerb, upperb[, dst])
+    \end{center}
+
+    \textbf{src: }the input array\\
+    \indent\textbf{lowerb: }inclusive lower boundary array or a scalar\\
+    \indent\textbf{upperb: }inclusive upper boundary array or a scalar\\
+    \indent\textbf{dst: }output array of the same size as \textbf{src} and CV\_8U data type.
+
+    \begin{center}
+      mask2 = cv2.inRange(image, (0,0,150), (100,100,255))\\
+      plt.figure(figsize=[15,15])\\
+      plt.subplot(121);plt.imshow(image[...,::-1]);\\
+      plt.title("Original Image")\\
+      plt.subplot(122);plt.imshow(mask2);\\
+      plt.title("Masked Image")\\
+    \end{center}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=200pt]{maskedimage.png}
+      \caption{Masking the image based on red}
+      \label{masking}
+    \end{figure}
 
 
+    \newpage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    \section{Matheatical Operations On Images}
 
 
 

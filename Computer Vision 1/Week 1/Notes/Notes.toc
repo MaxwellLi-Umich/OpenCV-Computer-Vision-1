@@ -1,35 +1,46 @@
-\contentsline {section}{\textbf {Week 1: Getting Started with Images}}{2}%
-\contentsline {subsection}{Introduction}{2}%
-\contentsline {subsection}{How is An Image Formed}{2}%
-\contentsline {subsection}{Image Formation}{2}%
-\contentsline {subsection}{Bayer Pattern}{3}%
-\contentsline {subsection}{Image Format}{3}%
-\contentsline {subsubsection}{Image Storage}{3}%
-\contentsline {subsection}{Image in OpenCV}{3}%
-\contentsline {subsubsection}{Mat Class}{3}%
-\contentsline {section}{Week 1: Reading/Writing/Modifying Images in OpenCV}{4}%
-\contentsline {subsection}{Image Formats}{4}%
-\contentsline {subsubsection}{JPEG}{4}%
-\contentsline {subsubsection}{PNG}{4}%
-\contentsline {subsubsection}{Transparent Images}{4}%
-\contentsline {subsection}{Reading The Image (Week One: Getting Started With Images)}{4}%
-\contentsline {subsubsection}{Function Syntax: cv2.imread}{4}%
-\contentsline {subsection}{Manipulating Pixels (Week One: Getting Started With Images)}{5}%
-\contentsline {subsubsection}{Accessing Values}{5}%
-\contentsline {subsubsection}{Modifying Values}{5}%
-\contentsline {subsection}{Manipulating Groups of Pixels (Week One: Getting Started With Images)}{5}%
-\contentsline {subsubsection}{How To Access A Region}{5}%
-\contentsline {subsection}{Displaying An Image}{5}%
-\contentsline {subsubsection}{Function Syntax: plt.imshow() vs cv2.imshow()}{5}%
-\contentsline {subsection}{Addition Display Utility Functions (OpenCV)}{6}%
-\contentsline {subsubsection}{cv2.namedWindow}{6}%
-\contentsline {subsubsection}{cv2.waitKey}{6}%
-\contentsline {subsubsection}{cv2.destroyWindow}{6}%
-\contentsline {subsubsection}{cv2.destroyAllWindows}{6}%
-\contentsline {subsection}{Saving an Image}{6}%
-\contentsline {subsubsection}{Syntax}{6}%
-\contentsline {subsection}{Color Images}{7}%
-\contentsline {subsubsection}{Image Channels}{7}%
-\contentsline {subsubsection}{Accessing Individual Channels}{7}%
-\contentsline {subsection}{Images the Alpha (fourth) Channel}{8}%
-\contentsline {subsubsection}{Example: }{8}%
+\contentsline {section}{\textbf {Week 1: Getting Started with Images}}{3}{section*.2}%
+\contentsline {subsection}{Introduction}{3}{section*.3}%
+\contentsline {subsection}{How is An Image Formed}{3}{section*.4}%
+\contentsline {subsection}{Image Formation}{3}{section*.6}%
+\contentsline {subsection}{Bayer Pattern}{4}{section*.8}%
+\contentsline {subsection}{Image Format}{4}{section*.10}%
+\contentsline {subsubsection}{Image Storage}{4}{section*.11}%
+\contentsline {subsection}{Image in OpenCV}{4}{section*.12}%
+\contentsline {subsubsection}{Mat Class}{4}{section*.13}%
+\contentsline {section}{Week 1: Reading/Writing/Modifying Images in OpenCV}{5}{section*.14}%
+\contentsline {subsection}{Image Formats}{5}{section*.15}%
+\contentsline {subsubsection}{JPEG}{5}{section*.17}%
+\contentsline {subsubsection}{PNG}{5}{section*.18}%
+\contentsline {subsubsection}{Transparent Images}{5}{section*.19}%
+\contentsline {subsection}{Reading The Image (Week One: Getting Started With Images)}{5}{section*.21}%
+\contentsline {subsubsection}{Function Syntax: cv2.imread}{5}{section*.22}%
+\contentsline {subsection}{Manipulating Pixels (Week One: Getting Started With Images)}{6}{section*.23}%
+\contentsline {subsubsection}{Accessing Values}{6}{section*.24}%
+\contentsline {subsubsection}{Modifying Values}{6}{section*.25}%
+\contentsline {subsection}{Manipulating Groups of Pixels (Week One: Getting Started With Images)}{6}{section*.26}%
+\contentsline {subsubsection}{How To Access A Region}{6}{section*.27}%
+\contentsline {subsection}{Displaying An Image}{6}{section*.28}%
+\contentsline {subsubsection}{Function Syntax: plt.imshow() vs cv2.imshow()}{6}{section*.29}%
+\contentsline {subsection}{Addition Display Utility Functions (OpenCV)}{7}{section*.30}%
+\contentsline {subsubsection}{cv2.namedWindow}{7}{section*.31}%
+\contentsline {subsubsection}{cv2.waitKey}{7}{section*.32}%
+\contentsline {subsubsection}{cv2.destroyWindow}{7}{section*.33}%
+\contentsline {subsubsection}{cv2.destroyAllWindows}{7}{section*.34}%
+\contentsline {subsection}{Saving an Image}{7}{section*.35}%
+\contentsline {subsubsection}{Syntax}{7}{section*.36}%
+\contentsline {subsection}{Color Images}{8}{section*.37}%
+\contentsline {subsubsection}{Image Channels}{8}{section*.38}%
+\contentsline {subsubsection}{Accessing Individual Channels}{8}{section*.39}%
+\contentsline {subsection}{Images the Alpha (fourth) Channel}{9}{section*.40}%
+\contentsline {subsubsection}{Example: }{9}{section*.41}%
+\contentsline {section}{Basic Image Operations}{10}{section*.43}%
+\contentsline {subsection}{Creating New Images}{10}{section*.44}%
+\contentsline {subsubsection}{Create a copy of an image}{10}{section*.45}%
+\contentsline {subsubsection}{Creating an Empty Image}{10}{section*.46}%
+\contentsline {subsubsection}{Creating an empty matrix that is the same size as the original}{10}{section*.47}%
+\contentsline {subsubsection}{Cropping an Image}{10}{section*.48}%
+\contentsline {subsubsection}{Copying/Pasting a part of an image}{10}{section*.49}%
+\contentsline {subsubsection}{Resizing an Image}{10}{section*.50}%
+\contentsline {subsubsection}{Resizing an Image Continued}{11}{section*.51}%
+\contentsline {subsubsection}{Creating an Image Mask}{12}{section*.54}%
+\contentsline {section}{Matheatical Operations On Images}{13}{section*.56}%
