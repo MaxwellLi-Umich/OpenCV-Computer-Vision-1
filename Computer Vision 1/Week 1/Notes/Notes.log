@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.24)  28 MAR 2020 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.24)  1 APR 2020 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,25 +420,30 @@ LaTeX Info: Redefining \nameref on input line 16.
 \openout3 = `Notes.out'.
 
 \GPT@outputbox=\box51
- (./Notes.toc)
+ (./Notes.toc [1
+
+{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `Notes.toc'.
 
- [1
-
-{c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<pinholecamera.png, id=250, 328.22626pt x 135.50626pt>
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.29   \newpage
+                [1]
+<pinholecamera.png, id=269, 328.22626pt x 135.50626pt>
 File: pinholecamera.png Graphic file (type png)
 <use pinholecamera.png>
 Package pdftex.def Info: pinholecamera.png  used on input line 45.
 (pdftex.def)             Requested size: 250.0pt x 103.21118pt.
-<koala.png, id=252, 354.42412pt x 136.1085pt>
+<koala.png, id=271, 354.42412pt x 136.1085pt>
 File: koala.png Graphic file (type png)
 <use koala.png>
 Package pdftex.def Info: koala.png  used on input line 57.
 (pdftex.def)             Requested size: 250.0pt x 96.00633pt.
- [3 <./pinholecamera.png> <./koala.png>]
-<demosaicing.png, id=262, 382.42876pt x 194.22563pt>
+ [2 <./pinholecamera.png> <./koala.png>]
+<demosaicing.png, id=281, 382.42876pt x 194.22563pt>
 File: demosaicing.png Graphic file (type png)
 <use demosaicing.png>
 Package pdftex.def Info: demosaicing.png  used on input line 72.
@@ -448,10 +453,10 @@ Overfull \hbox (7.97499pt too wide) in paragraph at lines 72--73
  [][] 
  []
 
-[4
+[3
 
  <./demosaicing.png>]
-<jpegvspng.png, id=269, 247.52475pt x 116.53537pt>
+<jpegvspng.png, id=288, 247.52475pt x 116.53537pt>
 File: jpegvspng.png Graphic file (type png)
 <use jpegvspng.png>
 Package pdftex.def Info: jpegvspng.png  used on input line 104.
@@ -471,7 +476,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--117
 
  []
 
-<Transparentimage.png, id=270, 230.36063pt x 84.91725pt>
+<Transparentimage.png, id=289, 230.36063pt x 84.91725pt>
 File: Transparentimage.png Graphic file (type png)
 <use Transparentimage.png>
 Package pdftex.def Info: Transparentimage.png  used on input line 121.
@@ -481,16 +486,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--139
 
  []
 
-[5
+[4
 
  <./jpegvspng.png> <./transparentimage.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
-[6
+[5
 
-] [7
+] [6
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 246--249
@@ -502,13 +507,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 246--249
 
  []
 
-[8]
-<alphamask.png, id=296, 205.36725pt x 91.84312pt>
+[7]
+<alphamask.png, id=315, 205.36725pt x 91.84312pt>
 File: alphamask.png Graphic file (type png)
 <use alphamask.png>
 Package pdftex.def Info: alphamask.png  used on input line 294.
 (pdftex.def)             Requested size: 500.0pt x 223.63158pt.
- [9 <./alphamask.png>]
+ [8 <./alphamask.png>]
 Overfull \hbox (4.7114pt too wide) in paragraph at lines 341--349
 \OT1/cmr/bx/n/10 fx: \OT1/cmr/m/n/10 the scale fac-tor along the x axis \OT1/cm
 r/bx/n/10 fy: \OT1/cmr/m/n/10 the scale fac-tor along the y axis \OT1/cmr/bx/n/
@@ -516,42 +521,60 @@ r/bx/n/10 fy: \OT1/cmr/m/n/10 the scale fac-tor along the y axis \OT1/cmr/bx/n/
 ,
  []
 
-[10]
-<resizing1.png, id=308, 224.94037pt x 95.45662pt>
+[9]
+<resizing1.png, id=327, 224.94037pt x 95.45662pt>
 File: resizing1.png Graphic file (type png)
 <use resizing1.png>
 Package pdftex.def Info: resizing1.png  used on input line 379.
 (pdftex.def)             Requested size: 500.0pt x 212.18417pt.
- [11 <./resizing1.png>]
-<resizing2.png, id=315, 217.41225pt x 75.8835pt>
+ [10 <./resizing1.png>]
+<resizing2.png, id=334, 217.41225pt x 75.8835pt>
 File: resizing2.png Graphic file (type png)
 <use resizing2.png>
 Package pdftex.def Info: resizing2.png  used on input line 404.
 (pdftex.def)             Requested size: 250.0pt x 87.25954pt.
-<maskedimage.png, id=316, 200.24812pt x 73.77562pt>
+<maskedimage.png, id=335, 200.24812pt x 73.77562pt>
 File: maskedimage.png Graphic file (type png)
 <use maskedimage.png>
 Package pdftex.def Info: maskedimage.png  used on input line 438.
 (pdftex.def)             Requested size: 200.0pt x 73.68874pt.
- [12 <./resizing2.png> <./maskedimage.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 450.
- [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 450.
+ [11 <./resizing2.png> <./maskedimage.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
-(./Notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 450.
+ []
+
+<Contrast Enhancement.png, id=344, 215.30438pt x 51.19125pt>
+File: Contrast Enhancement.png Graphic file (type png)
+<use Contrast Enhancement.png>
+Package pdftex.def Info: Contrast Enhancement.png  used on input line 488.
+(pdftex.def)             Requested size: 215.30385pt x 51.19112pt.
+[12 <./Contrast Enhancement.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
+
+ []
+
+<elonmask.png, id=352, 100.87688pt x 82.80937pt>
+File: elonmask.png Graphic file (type png)
+<use elonmask.png>
+Package pdftex.def Info: elonmask.png  used on input line 519.
+(pdftex.def)             Requested size: 340.0pt x 279.10815pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 525.
+[13 <./elonmask.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 525.
+ (./Notes.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 525.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 525.
 Package rerunfilecheck Info: File `Notes.out' has not changed.
-(rerunfilecheck)             Checksum: 05DAC99A6993AF06D25DDE5479123059;3293.
+(rerunfilecheck)             Checksum: 0F2C49DFC711CD1D24AC75CD89E4D33B;3570.
  ) 
 Here is how much of TeX's memory you used:
- 8478 strings out of 480994
- 127860 string characters out of 5916032
- 412074 words of memory out of 5000000
- 23784 multiletter control sequences out of 15000+600000
+ 8503 strings out of 480994
+ 128303 string characters out of 5916032
+ 412176 words of memory out of 5000000
+ 23801 multiletter control sequences out of 15000+600000
  538067 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,48p,823b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,48p,823b,390s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-di
@@ -560,10 +583,10 @@ ype1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr17.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
 .pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Notes.pdf (13 pages, 1942576 bytes).
+Output written on Notes.pdf (14 pages, 2314812 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 332 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 414 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 358 compressed objects within 4 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 456 words of extra memory for PDF output out of 10000 (max. 10000000)
 

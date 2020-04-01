@@ -1,9 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1585430372 "Notes.tex" "Notes.pdf" "Notes" 1585430375
-  "Notes.aux" 1585430374 8173 a20d44e86830e3a51e7078a499687eb5 "pdflatex"
-  "Notes.out" 1585430374 3293 05dac99a6993af06d25dde5479123059 "pdflatex"
-  "Notes.tex" 1585430367 26538 3e740ee3c469d7e74e6d7886a4ac939d ""
-  "Notes.toc" 1585430374 3287 a54c95efaad141e9ee41cd408b69e6a3 "pdflatex"
+["pdflatex"] 1585716872 "Notes.tex" "Notes.pdf" "Notes" 1585716874
+  "Contrast Enhancement.png" 1585711921 182349 4e7bf6b1c0b2b5e6d801d04d027a2c7f ""
+  "Notes.aux" 1585716874 9063 ce6d30e71e5e5aab41f67ee26400805a "pdflatex"
+  "Notes.out" 1585716874 3570 0f2c49dfc711cd1d24ac75cd89e4d33b "pdflatex"
+  "Notes.tex" 1585716870 32310 575a4efa3604378a7400c80bfeffd594 ""
+  "Notes.toc" 1585716874 3556 f03480ae08b978952902ea954044f151 "pdflatex"
   "alphamask.png" 1585301569 180069 2cfc536e07ba4ec6ce393733546b3b41 ""
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1585072070 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1585069775 1004 54797486969f23fa377b128694d548df ""
@@ -90,6 +91,7 @@
   "c:/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1585077568 8274593 6c40cee57c15ab7dee74c27e4d852ad0 ""
   "c:/texlive/2019/texmf.cnf" 1585077291 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   "demosaicing.png" 1585163806 283257 60fab989b6f656f44666b94672077b4c ""
+  "elonmask.png" 1585716741 145842 3b4491db59dd5af2da82c446980592b0 ""
   "jpegvspng.png" 1585183731 32048 1a0ac8479701387dba275db1ba1c77fa ""
   "koala.png" 1585162556 315180 8a1459e2790c27accf26e73dcf9454ee ""
   "maskedimage.png" 1585429563 149644 6eca006303ff7bd53537208ec567e377 ""
@@ -98,8 +100,8 @@
   "resizing2.png" 1585428652 258922 9c1bc6ba24bd96ff6f3974f41cdac100 ""
   "transparentimage.png" 1585183361 79876 cfd3f1a8b7606be0b99f6cc83af3672d ""
   (generated)
+  "Notes.out"
   "Notes.aux"
+  "Notes.pdf"
   "Notes.log"
   "Notes.toc"
-  "Notes.pdf"
-  "Notes.out"

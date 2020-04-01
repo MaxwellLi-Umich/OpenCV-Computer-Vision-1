@@ -43,4 +43,8 @@
 \BOOKMARK [3][-]{section*.50}{Resizing an Image}{section*.44}% 43
 \BOOKMARK [3][-]{section*.51}{Resizing an Image Continued}{section*.44}% 44
 \BOOKMARK [3][-]{section*.54}{Creating an Image Mask}{section*.44}% 45
-\BOOKMARK [1][-]{section*.56}{Matheatical Operations On Images}{}% 46
+\BOOKMARK [1][-]{section*.56}{Mathematical Operations On Images}{}% 46
+\BOOKMARK [2][-]{section*.57}{DataType Conversion}{section*.56}% 47
+\BOOKMARK [2][-]{section*.58}{Contrast Enhancement}{section*.56}% 48
+\BOOKMARK [2][-]{section*.60}{Brightness Enhancement}{section*.56}% 49
+\BOOKMARK [1][-]{section*.61}{APPLICATION: Sunglasses Filter}{}% 50

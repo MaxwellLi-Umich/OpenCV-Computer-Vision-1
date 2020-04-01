@@ -443,8 +443,83 @@
 
     \newpage
 
-    \section{Matheatical Operations On Images}
+    \section{Mathematical Operations On Images}
+    \subsection{DataType Conversion}
+    Understanding the datatypes of the variables that are representing images is extremely important to making sure that the desired results are being achieved. The data type can drastically change the outcome of the project as it can hinder the amount of data being stored to each variable as well as causing errors in the processing of said data (overflow errors, etc). Knowing the datatypes that are being used and knowing what they need to be is part of the foundation to correctly process images.\\
+    The cv2.imread function for python uses the numpy array which has a default datatype of \textbf{unsigned integers (8 bits)}. This is important as to do most of the operations that we will want to do we should convert the array to something that allows each pixel to have 16, 32, or 64 bits of data. \\
+    To convert an array just use the numpy functions to convert the array.
+    \begin{center}
+        import numpy as np\\
+        image $=$ cv2.imread(Data\_Path)\\
+        image $=$ np.float32(image)\\
+    \end{center}
+    This takes the array that was just read in an converts the data type of it to 32 bit floats. This gives much more capability to processing this data.\\
 
+    \subsection{Contrast Enhancement}
+    Contrast is essentially the difference between the darkest pixels and the brightest pixels in the image. The maximum contrast of an image is also know as the \textbf{Dynamic Range}.\\
+    The easiest way of improving contrast is by using Intensity Scaling. This essentially just takes a scale factor and multiplies all of the pixel's intensity values by it.
+    \begin{center}
+      Enhanced Intensity (Contrast) $=$ IntensityFactor x Intensity
+    \end{center}
+    Here is a code example of enhancing the contrast:
+    \begin{center}
+      \# Clip the values to [0,255] and change it back to uint8 for display\\
+      contrastImage = image * (1+contrastPercentage/100)\\
+      clippedContrastImage = np.clip(contrastImage, 0, 255)\\
+      contrastHighClippedUint8 = np.uint8(clippedContrastImage)\\
+
+      \# Convert the range to [0,1] and keep it in float format\\
+      contrastHighNormalized = (image * (1+contrastPercentage/100))/255\\
+      contrastHighNormalized01Clipped = np.clip(contrastHighNormalized,0,1)\\
+
+      plt.figure(figsize=[20,20])\\
+      plt.subplot(131);\\
+      plt.imshow(image[...,::-1]);\\
+      plt.title("original Image");\\
+      plt.subplot(132);\\
+      plt.imshow(contrastHighClippedUint8[...,::-1]);\\
+      plt.title("converted back to uint8");\\
+      plt.subplot(133);\\
+      plt.imshow(contrastHighNormalized01Clipped[...,::-1]);\\
+      plt.title("Normalized float to [0, 1]");\\
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics{"Contrast Enhancement.png"}
+        \caption{Contrast Enhancement}
+        \label{ContrastEnhancement}
+      \end{figure}
+    \end{center}
+    Don't forget to normalize the values back down to what they should be!!!. You cannot just multiply them all and display them because the libraries that display the image still require standarsized data to correctly display them.
+
+    \newpage
+
+    \subsection{Brightness Enhancement}
+    Brightness is the measure of light falling on the scene and can in terms of RGB can be thought of as the mean of the three values. To make images brighter you should be adding an arbitrary value to the intensity of the image.
+    \begin{center}
+      Output Image $=$ Intensity + Offset
+    \end{center}
+    For an image there are 255 intensity values (0 to 255). Here is some code that would increase the brightness by 50 levels. Keep in mind that you cannot simply add 50 to numpy values as they will over flow (what I mean by that is that if you had a numpy array of unsigned 8 big integers and added 50 to 210, the result wouldn't be 260 or cap itself at 255, it would be 4. Overflow sucks and that is why you really should work with floats as they make arithmetical operations much easier). To get around this issue you can either use floats or you can use the open cv addition function.
+    \begin{center}
+      cv2.add(image matrix, amount to add)\\
+      OR\\
+      Convert to either a normalized 32/64 bit float\\
+      OR\\
+      Convert to a 32/64 bit integer\\
+      Keep in mind that the last two options are just using the numpy methods to quickly convert the data types.
+    \end{center}
+
+    \section{APPLICATION: Sunglasses Filter}
+      In this really quick fun program we will be taking an image of Elon Musk and giving him some cool shades because even though the world is dying to the corona virus, he needs it because his future is still too bright. We will also give him a mask because he is a germaphobe and doesn't want to get sicko mode. The program will be located in the programs folder for this weeka and will probably be called something along the lines of sunglasses filter. This part of the notebook is mainly to just document the takeaways that I got from this quick project.\\
+
+      The idea of using a mask is quite simple but also quite effective. Using the alpha mask allows to actually merge images well on top of each other and makes it so that you don't have to do in and do stuff in photoshop to get it to work. The idea that you normalize values between 0 and 1 helps a lot when working with the numbers as then a lot of errors are clear up. To give the project my own touch I gave Elon a mask to stay safe during this Corona Virus thing. He's pretty safe now, no germs are gunna get to him!
+
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=340pt]{elonmask.png}
+        \caption{Filter Project}
+        \label{ElonMask}
+      \end{figure}
 
 
 \end{document}
